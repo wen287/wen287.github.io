@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>腳踏車健康App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>腳踏車健康App</h1>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <h2>距離</h2>
+        <p id="distance">0 km</p>
+      </div>
+      <div class="stat">
+        <h2>時間</h2>
+        <p id="time">00:00</p>
+      </div>
+      <div class="stat">
+        <h2>卡路里</h2>
+        <p id="calories">0 kcal</p>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="startStop" onclick="toggleCycling()">開始</button>
+      <button id="reset" onclick="resetData()">重置</button>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+}
+
+header h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 24px;
+}
+
+.stats {
+  margin-top: 20px;
+}
+
+.stat {
+  margin-bottom: 20px;
+}
+
+.stat h2 {
+  font-size: 18px;
+  color: #3498db;
+}
+
+.stat p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+let cycling = false;
+let distance = 0;  // Distance in km
+let time = 0;      // Time in seconds
+let calories = 0;  // Calories burned
+let interval;
+
+function toggleCycling() {
+  cycling = !cycling;
+  if (cycling) {
+    // Start cycling
+    document.getElementById('startStop').innerText = '停止';
+    startTimer();
+  } else {
+    // Stop cycling
+    document.getElementById('startStop').innerText = '開始';
+    clearInterval(interval);
+  }
+}
+
+function startTimer() {
+  interval = setInterval(() => {
+    time++;
+    distance += 0.02;  // Assume a speed of 20 km/h (change as needed)
+    calories += 0.5;   // Assume 0.5 kcal burned per minute (adjust as needed)
+    
+    // Update the UI
+    document.getElementById('time').innerText = formatTime(time);
+    document.getElementById('distance').innerText = distance.toFixed(2) + ' km';
+    document.getElementById('calories').innerText = calories.toFixed(0) + ' kcal';
+  }, 1000);  // Update every second
+}
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+function resetData() {
+  clearInterval(interval);
+  cycling = false;
+  time = 0;
+  distance = 0;
+  calories = 0;
+  
+  document.getElementById('time').innerText = '00:00';
+  document.getElementById('distance').innerText = '0 km';
+  document.getElementById('calories').innerText = '0 kcal';
+  document.getElementById('startStop').innerText = '開始';
+}
