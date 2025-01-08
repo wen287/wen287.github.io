@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>減肥產品App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            float: left;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product-item {
+            width: 250px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .product-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>減肥產品App</h1>
+        <p>讓你的減肥旅程更加輕鬆！</p>
+    </header>
+    
+    <nav>
+        <a href="#home">首頁</a>
+        <a href="#profile">個人資料</a>
+        <a href="#products">產品介紹</a>
+        <a href="#fitness">健身計劃</a>
+        <a href="#diet">飲食計劃</a>
+        <a href="#progress">進度追蹤</a>
+        <a href="#cart">購物車</a>
+    </nav>
+    
+    <div class="container">
+        <section id="home" class="section">
+            <div class="card">
+                <h2>歡迎來到減肥產品App</h2>
+                <p>我們的App專為減肥和健康管理設計，提供多種產品和計劃來幫助你達成目標。</p>
+            </div>
+        </section>
+
+        <section id="profile" class="section">
+            <div class="card">
+                <h2>個人資料</h2>
+                <p>在此設置你的個人資料，例如：體重目標、運動習慣等。</p>
+            </div>
+        </section>
+
+        <section id="products" class="section">
+            <div class="card">
+                <h2>產品介紹</h2>
+                <div class="product-list">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/250" alt="減肥產品1">
+                        <h3>減肥產品A</h3>
+                        <p>幫助你燃燒脂肪，提升新陳代謝。</p>
+                        <p><strong>NT$ 1500</strong></p>
+                        <button>加入購物車</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/250" alt="減肥產品2">
+                        <h3>減肥產品B</h3>
+                        <p>天然成分，改善消化系統，減少食慾。</p>
+                        <p><strong>NT$ 1200</strong></p>
+                        <button>加入購物車</button>
+                    </div>
+                    <!-- 可以根據需求添加更多產品 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="fitness" class="section">
+            <div class="card">
+                <h2>健身計劃</h2>
+                <p>根據你的目標，我們會提供專屬的運動計劃，幫助你加速減肥。</p>
+            </div>
+        </section>
+
+        <section id="diet" class="section">
+            <div class="card">
+                <h2>飲食計劃</h2>
+                <p>個人化的飲食建議，根據你的目標提供適合的飲食計劃。</p>
+            </div>
+        </section>
+
+        <section id="progress" class="section">
+            <div class="card">
+                <h2>進度追蹤</h2>
+                <p>記錄你的體重變化、運動和飲食情況，並查看進度圖表。</p>
+            </div>
+        </section>
+
+        <section id="cart" class="section">
+            <div class="card">
+                <h2>購物車</h2>
+                <p>查看你選擇的產品並進行結算。</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 減肥產品App - 版權所有</p>
+    </footer>
+</body>
+</html>
